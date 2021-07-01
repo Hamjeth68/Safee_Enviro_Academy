@@ -11,7 +11,7 @@
 {{--                <option data-symbol="€" data-placeholder="0.00">GBP</option>--}}
 {{--                <option data-symbol="$" data-placeholder="0.00">NGN</option>--}}
 {{--            </select>--}}
-            <a href="https://moodle.org/login/index.php" class="text-black-50 font-weight-bold">Staff</a>
+            <a href="{{url('/admin')}}" class="text-black-50 font-weight-bold">Staff</a>
             <a href="https://moodle.org/login/index.php" class="text-black-50 font-weight-bold">Alumni</a>
             <a href="https://moodle.org/login/index.php" class="text-black-50 font-weight-bold">Student</a>
             <a href="https://safeenviroacademy.co.uk/login/" class="text-black-50 font-weight-bold">Login</a>

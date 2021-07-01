@@ -121,6 +121,15 @@ Route::get('/payment', [App\Http\Controllers\EmailController::class, 'Pay']);
 
 Route::get('/thankyou', [App\Http\Controllers\EmailController::class, 'thank']);
 
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index']);
+
+Route::get('/users', [App\Http\Controllers\AdminController::class, 'UserManagment']);
+Route::get('/courses', [App\Http\Controllers\AdminController::class, 'CourseData']);
+Route::get('/reports', [App\Http\Controllers\AdminController::class, 'GetReports']);
+
+
+
+
 
 
 
