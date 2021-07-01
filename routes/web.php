@@ -117,6 +117,12 @@ Route::get('/guest-login', function () {
 
 Route::get('/emailForm', [App\Http\Controllers\EmailController::class, 'create']);
 Route::post('/emailForm', [App\Http\Controllers\EmailController::class, 'sendEmail'])->name('send.email');
+Route::get('/payment', [App\Http\Controllers\EmailController::class, 'Pay']);
+
+Route::get('/thankyou', [App\Http\Controllers\EmailController::class, 'thank']);
+
+
+
 
 Route::get('/personal-development', function () {
     return view('personaldevelopment');
