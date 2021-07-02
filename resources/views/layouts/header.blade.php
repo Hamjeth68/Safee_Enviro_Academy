@@ -57,7 +57,7 @@
                         {{--                        <li><a href="#">Sustainability</a></li>--}}
                         {{--                        <li><a href="#">Corporate Identity</a></li>--}}
 {{--                        <li><a href="{{url('/support1')}}">Support the Academy</a></li>--}}
-                        <li><a href="{{url('/contact1')}}">Contact Us</a></li>
+                        {{-- <li><a href="{{url('/contact1')}}">Contact Us</a></li> --}}
                     </ul>
                 </li>
                 <li class="drop-down"><a href="{{url('/lawma1')}}">Business & Partners</a>

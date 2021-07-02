@@ -174,7 +174,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="https://creative-tim.com/presentation">
+                                <a href="{{url('/commitment1')}}">
                                     About Us
                                 </a>
                             </li>
