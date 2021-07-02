@@ -1,6 +1,6 @@
 @extends('layouts.admin_layout')
 
-@section('title', 'Home')
+@section('title', 'SafeEnviro')
 
 @section('content')
 
@@ -440,5 +440,7 @@
             </div>
         </div>
     </div>
+
+    
 
 @endsection

@@ -111,15 +111,15 @@
 {{--                        <li><a href="#">Development</a></li>--}}
                     </ul>
                 </li>
-                <li class="drop-down"><a href="">Support Us</a>
+               {{--  <li class="drop-down"><a href="">Support Us</a>
                     <ul>
                         <li><a href="{{url('/donate1')}}">Donate Now</a></li>
                         <!--<li><a href="{{url('/Volunteer1')}}">Volunteer</a></li>-->
 {{--                        <li><a href="#">Transforming Lives</a></li>--}}
 {{--                        <li><a href="#">Finding Solutions</a></li>--}}
 {{--                        <li><a href="#">Inspiring Students</a></li>--}}
-{{--                        <li><a href="#">Get Involved</a></li>--}}
-                    </ul>
+{{--                        <li><a href="#">Get Involved</a></li>
+                    </ul>--}}
                 </li>
             </ul>
         </nav><!-- .nav-menu -->
