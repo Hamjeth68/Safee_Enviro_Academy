@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-
-
-
 <section id="hero" class="d-flex align-items-center">
     <div class="container">
         <div class="row justify-content-center">
@@ -13,7 +9,7 @@
                     <div class="card-header">{{ __('Login') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="GET" action="{{ url('/admin') }}">
                             @csrf
 
                             <div class="form-group row">
@@ -58,18 +54,18 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <a href="{{ url('/admin') }}"><button type="submit" class="btn btn-primary">
                                         {{ __('Login') }}
-                                    </button>
-                                    <a href="{{ url('/') }}"><button type="submit" class="btn btn-primary">
+                                    </button></a>
+                                    {{-- <a href="{{ url('/') }}"><button type="submit" class="btn btn-primary">
                                             {{ __('Login as Guest') }}
-                                        </button></a>
+                                        </button></a> --}}
 
-                                    @if (Route::has('password.request'))
+                                    {{-- @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
-                                    </a>
-                                    @endif
+                                    </a> 
+                                    @endif--}}
                                 </div>
                             </div>
                         </form>

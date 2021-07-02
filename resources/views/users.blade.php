@@ -3,8 +3,6 @@
 @section('title', 'Home')
 
 @section('content')
-
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-8">
@@ -96,24 +94,27 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card card-profile">
-                    <div class="card-avatar">
-                        <a href="javascript:;">
-                            <img class="img" src="{{url("/")}}/assets/img/faces/marc.jpg" />
-                        </a>
+                <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                    <div class="fileinput-new thumbnail img-raised">
+                        <img src="http://style.anu.edu.au/_anu/4/images/placeholders/person_8x10.png" alt="...">
                     </div>
-                    <div class="card-body">
-                        <h6 class="card-category text-gray">CEO / Co-Founder</h6>
-                        <h4 class="card-title">Hamjeth Misree</h4>
-                        <p class="card-description">
-                            
-                        </p>
-                        <a href="javascript:;" class="btn btn-primary btn-round">Follow</a>
+                    <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
+                    <div>
+                        <span class="btn btn-raised btn-round btn-default btn-file">
+                            <span class="fileinput-new">Select image</span>
+                            <span class="fileinput-exists">Change</span>
+                            <input type="file" name="..." />
+                        </span>
+                        <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i
+                                class="fa fa-times"></i> Remove</a>
                     </div>
-                </div>
             </div>
         </div>
     </div>
+    </div>
+
+
+    
 
 
 @endsection

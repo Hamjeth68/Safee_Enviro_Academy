@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="76x76" href="{{url("/")}}/assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="{{url("/")}}/assets/img/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('img/AcLogo.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('img/AcLogo.png') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
     <link href="{{url("/")}}/assets/css/material-dashboard.css?v=2.1.2" rel="stylesheet" />
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="{{url("/")}}/assets/demo/demo.css" rel="stylesheet" />
 </head>
 
 <title>
@@ -154,7 +152,7 @@
                                     <a class="dropdown-item" href="#">Profile</a>
                                     <a class="dropdown-item" href="#">Settings</a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Log out</a>
+                                    <a class="dropdown-item" href="{{url('/')}}">Log out</a>
                                 </div>
                             </li>
                         </ul>
@@ -170,7 +168,7 @@
                     <nav class="float-left">
                         <ul>
                             <li>
-                                <a href="https://www.creative-tim.com">
+                                <a href="https://safeenviro.allexinternational.com/Safee/public/index.php">
                                     SafeEnviro
                                 </a>
                             </li>

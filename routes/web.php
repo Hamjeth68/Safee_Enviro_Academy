@@ -126,6 +126,7 @@ Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index']);
 Route::get('/users', [App\Http\Controllers\AdminController::class, 'UserManagment']);
 Route::get('/courses', [App\Http\Controllers\AdminController::class, 'CourseData']);
 Route::get('/reports', [App\Http\Controllers\AdminController::class, 'GetReports']);
+Route::get('/adminlog', [App\Http\Controllers\AdminController::class, 'logAdmin']);
 
 
 

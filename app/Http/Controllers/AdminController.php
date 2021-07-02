@@ -23,4 +23,8 @@ class AdminController extends Controller
     public function GetReports(){
         return view('reports');
     }
+
+    public function logAdmin(){
+        return view('adminlogin');
+    }
 }
