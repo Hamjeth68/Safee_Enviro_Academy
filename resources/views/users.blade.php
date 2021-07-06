@@ -108,13 +108,66 @@
                         <a href="#pablo" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i
                                 class="fa fa-times"></i> Remove</a>
                     </div>
+                </div>
             </div>
         </div>
     </div>
+
+    <div class="col-md-12">
+        <div class="card card-plain">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title mt-0">Registered Students</h4>
+                <p class="card-category">Student Data</p>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="">
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                Name
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Address
+                            </th>
+                            <th>
+                                State
+                            </th>
+                        </thead>
+                        {{-- <tbody>
+                            @foreach($student as $students)
+                            <tr>
+                                <td>
+                                    {{$students->id}}
+                                </td>
+                                <td>
+                                    {{$students->name}}
+                                </td>
+                                <td>
+                                    {{$students->email}}
+                                </td>
+                                <td>
+                                    {{$students->address}}
+                                </td>
+                                <td>
+                                    {{$students->state}}
+                                </td>
+                            </tr> 
+                            @endforeach
+                        </tbody> --}}
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 
 
-    
+
 
 
 @endsection

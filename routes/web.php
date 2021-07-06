@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
 
 
 /*
@@ -112,6 +113,13 @@ Route::get('/guest-login', function () {
 
 // Route::get('/emailForm', [App\Http\Controllers\AddRegisterController::class, 'createUserForm']);
 // Route::post('/emailForm', [App\Http\Controllers\AddRegisterController::class, 'userForm'])->name('validate.form');
+
+
+Route::resource('students', StudentController::class);
+
+Route::get('/students', [App\Http\Controllers\StudentController::class, 'create']);
+Route::post('/students', [App\Http\Controllers\StudentController::class, 'store'])->name('students.store');
+
 
 
 
