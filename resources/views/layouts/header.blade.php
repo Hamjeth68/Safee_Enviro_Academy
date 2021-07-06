@@ -70,6 +70,16 @@
                         {{--                        <li><a href="#">Development</a></li>--}}
                     </ul>
                 </li>
+                <li class="drop-down"><a href="{{url('')}}">Accounts</a>
+                    <ul>
+{{--                        <li><a href="{{url('/business1')}}">Business Services</a></li>--}}
+                        <li><a href="{{url('')}}">Create Account</a></li>
+{{--                        <li><a href="{{url('/Research1')}}">Research & Innovation</a></li>--}}
+                        {{--                        <li><a href="#">About</a></li>--}}
+                        {{--                        <li><a href="#">Continuing Professional</a></li>--}}
+                        {{--                        <li><a href="#">Development</a></li>--}}
+                    </ul>
+                </li>
                 {{-- <li class="drop-down"><a href="">Support Us</a>
                     <ul>
                         <li><a href="{{url('/donate1')}}">Donate Now</a></li>
