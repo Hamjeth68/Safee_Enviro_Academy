@@ -42,21 +42,22 @@ class StudentController extends Controller
             'password' => 'required',
             'address' => 'required',
             'profession_occupation' => 'required',
-            'date' => 'required',
+            'date' => 'required'
         ]);
 
-        
-        $student = new Student();
-        $student->name = $request->name;
-        $student->email = $request->email;
-        $student->phone = $request->phone;
-        $student->address = $request->address;
-        $student->profession_occupation = $request->profession_occupation;
-        $student->date = $request->date;
 
-        if($student->create($storeData) == true){
-            echo 'Saved';
-        }
+        // $student = new Student();
+
+        // $student->name = $request->name;
+        // $student->email = $request->email;
+        // $student->phone = $request->phone;
+        // $student->address = $request->address;
+        // $student->profession_occupation = $request->profession_occupation;
+        // $student->date = $request->date;
+
+        // if($student->save($storeData) == true){
+        //     echo 'Saved';
+        // }
     }
 
     /**

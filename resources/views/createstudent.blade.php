@@ -17,7 +17,6 @@
 
     </style>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
@@ -32,7 +31,7 @@
                         <div class="card-header">{{ __('Register') }}</div>
 
                         <div class="card-body">
-                            <form action=" {{route('students.store')}} " class="contact100-form validate-form" method="POST">
+                            <form  method="POST" action=" {{route('students.store')}} " class="contact100-form validate-form" >
                                 @csrf
 
                                 <div class="form-group row">
@@ -117,6 +116,24 @@
                                              required autocomplete="address">
 
                                         @error('address')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <label for="address"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="password" type="password"
+                                            class="form-control @error('password') is-invalid @enderror" name="password"
+                                             required autocomplete="password">
+
+                                        @error('password')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
