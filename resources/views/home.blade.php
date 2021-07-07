@@ -111,7 +111,7 @@
 {{--                        <li><a href="#">Development</a></li>--}}
                     </ul>
                 </li>
-                <li class="drop-down"><a href="{{url('')}}">Accounts</a>
+                <li class="drop-down"><a href="{{url('/students')}}">Accounts</a>
                     <ul>
 {{--                        <li><a href="{{url('/business1')}}">Business Services</a></li>--}}
                         <li><a href="{{url('/students')}}">Create Account</a></li>

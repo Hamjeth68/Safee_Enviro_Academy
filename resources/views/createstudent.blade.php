@@ -11,8 +11,6 @@
                 flex-wrap: wrap;
                 justify-content: space-between;
             }
-
-
         }
 
     </style>
@@ -21,6 +19,8 @@
         integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+
+ 
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
@@ -32,7 +32,7 @@
 
                         <div class="card-body">
                             <form  method="POST" action=" {{route('students.store')}} " class="contact100-form validate-form" >
-                                @csrf
+                               
 
                                 <div class="form-group row">
                                     <label for="name"
@@ -56,7 +56,7 @@
                                         class="col-md-4 col-form-label text-md-right">{{ __('Profession / Occupation') }}</label>
 
                                     <div class="col-md-6">
-                                        <input id="Profession/Occupation" type="text"
+                                        <input id="profession_occupation" type="text"
                                             class="form-control @error('Profession/Occupation') is-invalid @enderror"
                                             name="profession_occupation" 
                                             required autocomplete="Profession / Occupation">
@@ -192,9 +192,6 @@
                                         @enderror
                                     </div>
                                 </div>
-
-
-
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-primary">
@@ -208,7 +205,6 @@
                 </div>
             </div>
         </div>
-
     </section><!-- End Hero -->
 
 

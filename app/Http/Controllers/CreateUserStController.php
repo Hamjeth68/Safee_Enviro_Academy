@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Student;
 
-class StudentController extends Controller
+class CreateUserStController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +15,15 @@ class StudentController extends Controller
     public function index()
     {
         $students = Student::all();
-         return response()->json(['students'=> $students], 200);
-         // return view('users', compact('student'));
+        // return response()->json(['students' => $students], 200);
+         return view('users', compact('students'));
     }
 
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
     // public function viewForm(){
     //     return view('createstudent');
     // }
@@ -40,7 +46,7 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-            $request->validate([
+        $request->validate([
             'name' => 'required|max:191',
             'email' => 'required|max:191',
             'phone' => 'required|max:191',
@@ -62,9 +68,10 @@ class StudentController extends Controller
         $student->profession_occupation = $request->profession_occupation;
         $student->date = $request->date;
         $student->state = $request->state;
-        if($student->save()== true){
-            return response()->json(['message' => 'account created'], 200);
-        }   
+        $student->create();
+        return response()->json(['message' => 'account created'], 200);
+    
+        
     }
 
     /**

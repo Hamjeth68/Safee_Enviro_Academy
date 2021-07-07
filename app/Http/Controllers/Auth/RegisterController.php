@@ -54,6 +54,12 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'phone' => ['required', 'string', 'max:255'],
+            'address' => ['required', 'string', 'max:255'],
+            'profession_occupation' => ['required', 'string', 'max:255'],
+            'date' => ['required', 'string', 'max:255'],
+            'state' => ['required', 'string', 'max:255'],
+            
         ]);
     }
 
@@ -69,6 +75,12 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'phone' => $data['phone'], 
+            'address' => $data['address'],
+            'profession_occupation' => $data['profession_occupation'], 
+            'date' => $data['date'],
+            'state' => $data['state']      
+           
         ]);
 
         // Mail::send('email-template', $data, function ($message) use ($data) {

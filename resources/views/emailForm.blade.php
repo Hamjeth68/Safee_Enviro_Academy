@@ -34,7 +34,7 @@
                         <div class="card-header">{{ __('Register') }}</div>
 
                         <div class="card-body">
-                            <form action="{{ url('emailForm') }}" class="contact100-form validate-form" method="post">
+                            <form action="{{ route('send.email') }}" class="contact100-form validate-form" method="post">
                                 @csrf
 
                                 <div class="form-group row">

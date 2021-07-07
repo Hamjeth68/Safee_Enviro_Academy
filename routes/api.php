@@ -3,7 +3,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\StudentController;
+
 
 
 
@@ -19,10 +19,10 @@ use App\Http\Controllers\StudentController;
 */
 
 
-Route::get('/students', [StudentController::class], 'viewForm')->name('students.viewForm');
-Route::get('/students/list', [StudentController::class], 'index')->name('students.index');
+// Route::get('/students', [CreateUserStController::class], 'create')->name('students.create');
+// Route::get('/students', [CreateUserStController::class], 'index')->name('students.index');
 
-Route::post('/students/add',[StudentController::class, 'store'])->name('students.store');
+// Route::post('/students/add',[CreateUserStController::class, 'store'])->name('students.store');
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();

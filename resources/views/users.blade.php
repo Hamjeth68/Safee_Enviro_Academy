@@ -133,33 +133,39 @@
                                 Email
                             </th>
                             <th>
+                                Profession / Occupation
+                            </th>
+                            <th>
                                 Address
                             </th>
                             <th>
                                 State
                             </th>
                         </thead>
-                        {{-- <tbody>
-                            @foreach($student as $students)
+                         <tbody>
+                            @foreach($students as $student)
                             <tr>
                                 <td>
-                                    {{$students->id}}
+                                    {{$student->id}}
                                 </td>
                                 <td>
-                                    {{$students->name}}
+                                    {{$student->name}}
                                 </td>
                                 <td>
-                                    {{$students->email}}
+                                    {{$student->email}}
                                 </td>
                                 <td>
-                                    {{$students->address}}
+                                    {{$student->profession_occupation}}
                                 </td>
                                 <td>
-                                    {{$students->state}}
+                                    {{$student->address}}
+                                </td>
+                                <td>
+                                    {{$student->state}}
                                 </td>
                             </tr> 
                             @endforeach
-                        </tbody> --}}
+                        </tbody> 
                     </table>
                 </div>
             </div>
