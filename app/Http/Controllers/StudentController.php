@@ -15,7 +15,7 @@ class StudentController extends Controller
     {
         $students = Student::all();
         return response()->json(['students'=> $students], 200);
-        // return view('users', compact('student'));
+        //  return view('users', compact('student'));
     }
 
     /**

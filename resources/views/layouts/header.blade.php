@@ -73,7 +73,7 @@
                 <li class="drop-down"><a href="{{url('')}}">Accounts</a>
                     <ul>
 {{--                        <li><a href="{{url('/business1')}}">Business Services</a></li>--}}
-                        <li><a href="{{url('/students')}}">Create Account</a></li>
+                        <li><a href="{{route('students.create')}}">Create Account</a></li>
 {{--                        <li><a href="{{url('/Research1')}}">Research & Innovation</a></li>--}}
                         {{--                        <li><a href="#">About</a></li>--}}
                         {{--                        <li><a href="#">Continuing Professional</a></li>--}}
