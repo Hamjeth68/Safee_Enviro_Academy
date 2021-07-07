@@ -31,9 +31,8 @@
                         <div class="card-header">{{ __('Register') }}</div>
 
                         <div class="card-body">
-                            <form  method="POST" action=" {{route('students.store')}} " class="contact100-form validate-form" >
+                            <form  method="POST" action="{{route('students.store')}}" class="contact100-form validate-form" >
                                
-
                                 <div class="form-group row">
                                     <label for="name"
                                         class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
@@ -52,7 +51,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                    <label for="Profession / Occupation"
+                                    <label for="profession_occupation"
                                         class="col-md-4 col-form-label text-md-right">{{ __('Profession / Occupation') }}</label>
 
                                     <div class="col-md-6">
@@ -61,7 +60,7 @@
                                             name="profession_occupation" 
                                             required autocomplete="Profession / Occupation">
 
-                                        @error('Profession/Occupation')
+                                        @error('profession_occupation')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>

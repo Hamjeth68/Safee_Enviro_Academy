@@ -34,7 +34,7 @@
                         <div class="card-header">{{ __('Register') }}</div>
 
                         <div class="card-body">
-                            <form action="{{ route('register.create') }}" class="contact100-form validate-form"
+                            <form action="{{ url('/register') }}" class="contact100-form validate-form"
                                 method="post">
                                 
 
@@ -55,7 +55,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row">
+                                {{-- <div class="form-group row">
                                     <label for="Profession / Occupation"
                                         class="col-md-4 col-form-label text-md-right">{{ __('Profession / Occupation') }}</label>
 
@@ -70,7 +70,7 @@
                                             </span>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
 
 
                                 <div class="form-group row">
@@ -91,7 +91,7 @@
                                 </div>
 
 
-                                <div class="form-group row">
+                                {{-- <div class="form-group row">
                                     <label for="PhoneNumber"
                                         class="col-md-4 col-form-label text-md-right">{{ __('PhoneNumber') }}</label>
 
@@ -106,10 +106,10 @@
                                             </span>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
 
 
-                                <div class="form-group row">
+                                {{-- <div class="form-group row">
                                     <label for="address"
                                         class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
 
@@ -124,9 +124,9 @@
                                             </span>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
 
-                                <div class="form-group row">
+                                {{-- <div class="form-group row">
                                     <label for="state"
                                         class="col-md-4 col-form-label text-md-right">{{ __('State') }}</label>
 
@@ -141,7 +141,7 @@
                                             </span>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
 
 
                                 <div class="form-group row">
@@ -162,7 +162,7 @@
                                 </div>
 
 
-                                <div class="form-group row">
+                                {{-- <div class="form-group row">
                                     <label for="date"
                                         class="col-md-4 col-form-label text-md-right">{{ __('Date of Birth') }}</label>
 
@@ -194,7 +194,7 @@
                                             </span>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
                                         <button type="submit" class="btn btn-primary">

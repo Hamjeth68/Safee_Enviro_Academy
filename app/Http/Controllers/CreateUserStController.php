@@ -38,6 +38,11 @@ class CreateUserStController extends Controller
         return view('createstudent');
     }
 
+    public function __construct()
+    {
+        $this->middleware('signed');
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -68,7 +73,7 @@ class CreateUserStController extends Controller
         $student->profession_occupation = $request->profession_occupation;
         $student->date = $request->date;
         $student->state = $request->state;
-        $student->create();
+        Student::create($request->all());
         return response()->json(['message' => 'account created'], 200);
     
         

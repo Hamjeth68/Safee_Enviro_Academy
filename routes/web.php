@@ -133,6 +133,10 @@ Route::post('/students/add',[App\Http\Controllers\CreateUserStController::class,
 
 
 
+Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'create']);
+
+
+
 
 
 Route::get('/emailForm', [App\Http\Controllers\EmailController::class, 'create']);

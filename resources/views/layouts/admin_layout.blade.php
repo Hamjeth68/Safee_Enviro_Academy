@@ -41,7 +41,7 @@
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="{{ url('/users') }}">
+                        <a class="nav-link" href="{{ url('/students-list') }}">
                             <i class="material-icons">person</i>
                             <p>User Managment</p>
                         </a>
