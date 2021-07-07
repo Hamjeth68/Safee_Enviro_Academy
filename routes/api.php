@@ -19,8 +19,8 @@ use App\Http\Controllers\StudentController;
 */
 
 
-Route::get('/students', [StudentController::class], 'create')->name('students.create');
-Route::get('/studentsList', [StudentController::class], 'index')->name('students.index');
+Route::get('/students', [StudentController::class], 'viewForm')->name('students.viewForm');
+Route::get('/students/list', [StudentController::class], 'index')->name('students.index');
 
 Route::post('/students/add',[StudentController::class, 'store'])->name('students.store');
 

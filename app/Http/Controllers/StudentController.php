@@ -11,11 +11,15 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $students = Student::all();
-        return response()->json(['students'=> $students], 200);
-        //  return view('users', compact('student'));
+    // public function index()
+    // {
+    //     $students = Student::all();
+    //     // return response()->json(['students'=> $students], 200);
+    //      return view('users', compact('student'));
+    // }
+
+    public function viewForm(){
+        return view('createstudent');
     }
 
     /**
@@ -23,10 +27,10 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('createstudent');
-    }
+    // public function create()
+    // {
+    //     return view('createstudent');
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -58,10 +62,9 @@ class StudentController extends Controller
         $student->profession_occupation = $request->profession_occupation;
         $student->date = $request->date;
         $student->state = $request->state;
-        $student->save();
-        return response()->json(['message' => 'account created'], 200);
-
-       
+        if($student->save()== true){
+            return response()->json(['message' => 'account created'], 200);
+        }   
     }
 
     /**
