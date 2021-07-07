@@ -1,8 +1,10 @@
 <?php
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Student;
+use App\Http\Controllers\StudentController;
+
 
 
 /*
@@ -16,11 +18,13 @@ use App\Models\Student;
 |
 */
 
+
+Route::get('/students', [StudentController::class], 'index');
+Route::post('/students/add', [StudentController::class], 'store');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 
- Route::get('students', function () {
-     return Student::all();
- });
+

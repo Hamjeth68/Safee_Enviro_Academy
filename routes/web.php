@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StudentController;
 
 
 
@@ -119,6 +120,8 @@ Route::get('/guest-login', function () {
 
 // Route::get('/students', [App\Http\Controllers\StudentController::class, 'create']);
 // Route::post('/students', [App\Http\Controllers\StudentController::class, 'store'])->name('students.store');
+
+// Route::post('/students/add',[StudentController::class, 'store'])->name('students.store');
 
 
 

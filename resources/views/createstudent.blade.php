@@ -123,6 +123,23 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group row">
+                                    <label for="state"
+                                        class="col-md-4 col-form-label text-md-right">{{ __('State') }}</label>
+
+                                    <div class="col-md-6">
+                                        <input id="state" type="text"
+                                            class="form-control @error('state') is-invalid @enderror" name="state"
+                                             required autocomplete="state">
+
+                                        @error('state')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
 
                                 <div class="form-group row">
                                     <label for="address"

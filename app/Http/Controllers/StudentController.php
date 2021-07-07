@@ -13,8 +13,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        $student = Student::all();
-        return view('users', compact('student'));
+        $students = Student::all();
+        return response()->json(['students'=> $students], 200);
+        // return view('users', compact('student'));
     }
 
     /**
@@ -35,29 +36,32 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        $storeData = $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'phone' => 'required',
-            'password' => 'required',
-            'address' => 'required',
-            'profession_occupation' => 'required',
-            'date' => 'required'
+            $request->validate([
+            'name' => 'required|max:191',
+            'email' => 'required|max:191',
+            'phone' => 'required|max:191',
+            'password' => 'required|max:191',
+            'address' => 'required|max:191',
+            'profession_occupation' => 'required|max:191',
+            'date' => 'required|max:191',
+            'state' => 'required|max:191',
         ]);
 
 
-        // $student = new Student();
+        $student = new Student();
 
-        // $student->name = $request->name;
-        // $student->email = $request->email;
-        // $student->phone = $request->phone;
-        // $student->address = $request->address;
-        // $student->profession_occupation = $request->profession_occupation;
-        // $student->date = $request->date;
+        $student->name = $request->name;
+        $student->email = $request->email;
+        $student->phone = $request->phone;
+        $student->password = $request->password;
+        $student->address = $request->address;
+        $student->profession_occupation = $request->profession_occupation;
+        $student->date = $request->date;
+        $student->state = $request->state;
+        $student->save();
+        return response()->json(['message' => 'account created'], 200);
 
-        // if($student->save($storeData) == true){
-        //     echo 'Saved';
-        // }
+       
     }
 
     /**
