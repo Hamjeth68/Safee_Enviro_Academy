@@ -126,6 +126,7 @@ Route::get('/guest-login', function () {
 
 
 Route::get('/students', [App\Http\Controllers\CreateUserStController::class, 'create']);
+
 Route::get('/students-list', [App\Http\Controllers\CreateUserStController::class, 'index']);
 
 Route::post('/students/add',[App\Http\Controllers\CreateUserStController::class, 'store'])->name('students.store');
