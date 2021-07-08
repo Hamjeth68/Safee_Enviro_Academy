@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 // use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
@@ -48,9 +50,9 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(Request $request)
     {
-        return Validator::make($data, [
+        return Validator::make($request, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -69,12 +71,13 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+   
+    protected function store(Request $request)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),                     
             // 'phone' => $data['phone'], 
             // 'address' => $data['address'],
             // 'profession_occupation' => $data['profession_occupation'], 
@@ -82,6 +85,7 @@ class RegisterController extends Controller
             // 'state' => $data['state']      
            
         ]);
+        return response()->json(['message' => 'account created'], 200);
 
         // Mail::send('email-template', $data, function ($message) use ($data) {
         //     $message->to($data['email'])

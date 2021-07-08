@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use Illuminate\Support\Facades\Hash;
 
 class CreateUserStController extends Controller
 {
@@ -38,10 +39,10 @@ class CreateUserStController extends Controller
         return view('createstudent');
     }
 
-    public function __construct()
-    {
-        $this->middleware('signed');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest');
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -63,20 +64,30 @@ class CreateUserStController extends Controller
         ]);
 
 
-        $student = new Student();
+        return Student::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'phone' => $request['phone'],
+            'password' => Hash::make($request['password']),
+            'address' => $request['address'],
+            'profession_occupation' => $request['profession_occupation'],
+            'date' => $request['date'],
+            'state' => $request['state'],           
+        ]);
+        return response()->json(['message' => 'account created'], 200); 
 
-        $student->name = $request->name;
-        $student->email = $request->email;
-        $student->phone = $request->phone;
-        $student->password = $request->password;
-        $student->address = $request->address;
-        $student->profession_occupation = $request->profession_occupation;
-        $student->date = $request->date;
-        $student->state = $request->state;
-        Student::create($request->all());
-        return response()->json(['message' => 'account created'], 200);
-    
-        
+        // $student = new Student();
+
+        // $student->name = $request->name;
+        // $student->email = $request->email;
+        // $student->phone = $request->phone;
+        // $student->password = $request->password;
+        // $student->address = $request->address;
+        // $student->profession_occupation = $request->profession_occupation;
+        // $student->date = $request->date;
+        // $student->state = $request->state;
+        // Student::create($request->all());
+           
     }
 
     /**

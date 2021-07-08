@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 
 
@@ -124,16 +125,15 @@ Route::get('/guest-login', function () {
 
 // Route::post('/students/add',[StudentController::class, 'store'])->name('students.store');
 
-
 Route::get('/students', [App\Http\Controllers\CreateUserStController::class, 'create']);
 
 Route::get('/students-list', [App\Http\Controllers\CreateUserStController::class, 'index']);
 
-Route::post('/students/add',[App\Http\Controllers\CreateUserStController::class, 'store'])->name('students.store');
+Route::post('/students',[App\Http\Controllers\CreateUserStController::class, 'store'])->name('students.store');
 
 
 
-Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'create']);
+Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'store']);
 
 
 
