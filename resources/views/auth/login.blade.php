@@ -9,7 +9,7 @@
                     <div class="card-header">{{ __('Login') }}</div>
 
                     <div class="card-body">
-                        <form method="GET" action="{{ url('/admin') }}">
+                        <form method="POST" action="{{ route('login.custom') }}">
                             @csrf
 
                             <div class="form-group row">
@@ -54,9 +54,9 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <a href="{{ url('/admin') }}"><button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary">
                                         {{ __('Login') }}
-                                    </button></a>
+                                    </button>
                                     {{-- <a href="{{ url('/') }}"><button type="submit" class="btn btn-primary">
                                             {{ __('Login as Guest') }}
                                         </button></a> --}}

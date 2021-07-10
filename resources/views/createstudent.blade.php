@@ -31,7 +31,7 @@
                         <div class="card-header">{{ __('Register') }}</div>
 
                         <div class="card-body">
-                            <form  method="POST" action="{{url('/students')}}" class="contact100-form validate-form" >
+                            <form  method="POST" action="{{Route('students.store')}}" class="contact100-form validate-form" >
                                
                                 <div class="form-group row">
                                     <label for="name"

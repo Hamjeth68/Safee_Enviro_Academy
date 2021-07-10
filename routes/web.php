@@ -129,13 +129,14 @@ Route::get('/students', [App\Http\Controllers\CreateUserStController::class, 'cr
 
 Route::get('/students-list', [App\Http\Controllers\CreateUserStController::class, 'index']);
 
-Route::post('/students',[App\Http\Controllers\CreateUserStController::class, 'store'])->name('students.store');
+Route::post('/students/add',[App\Http\Controllers\CreateUserStController::class, 'store'])->name('students.store');
 
 
 
 Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'store']);
 
-
+Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('login');
+Route::post('/custom-login', [App\Http\Controllers\Auth\LoginController::class, 'customLogin'])->name('login.custom'); 
 
 
 

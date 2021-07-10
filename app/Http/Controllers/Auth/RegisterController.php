@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
+use Session;
 // use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
@@ -27,12 +29,15 @@ class RegisterController extends Controller
 
     use RegistersUsers;
 
+    
+
+
     /**
      * Where to redirect users after registration.
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    public $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -50,7 +55,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(Request $request)
+    public function validator(Request $request)
     {
         return Validator::make($request, [
             'name' => ['required', 'string', 'max:255'],
@@ -61,7 +66,7 @@ class RegisterController extends Controller
             // 'profession_occupation' => ['required', 'string', 'max:255'],
             // 'date' => ['required', 'string', 'max:255'],
             // 'state' => ['required', 'string', 'max:255'],
-            
+
         ]);
     }
 
@@ -71,19 +76,19 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-   
-    protected function store(Request $request)
+
+    public function store(Request $request)
     {
         return User::create([
             'name' => $request['name'],
             'email' => $request['email'],
-            'password' => Hash::make($request['password']),                     
+            'password' => Hash::make($request['password']),
             // 'phone' => $data['phone'], 
             // 'address' => $data['address'],
             // 'profession_occupation' => $data['profession_occupation'], 
             // 'date' => $data['date'],
             // 'state' => $data['state']      
-           
+
         ]);
         return response()->json(['message' => 'account created'], 200);
 
@@ -92,4 +97,8 @@ class RegisterController extends Controller
         //         ->subject($data['subject']);
         // });
     }
+
+
+
+   
 }

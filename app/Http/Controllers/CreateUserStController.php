@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
 use App\Models\Student;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Request;
+
 
 class CreateUserStController extends Controller
 {
+
+    use RegistersUsers;
     /**
      * Display a listing of the resource.
      *
@@ -21,10 +28,10 @@ class CreateUserStController extends Controller
     }
 
 
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+    public function __construct()
+    {
+        $this->middleware('guest');
+    }
     // public function viewForm(){
     //     return view('createstudent');
     // }

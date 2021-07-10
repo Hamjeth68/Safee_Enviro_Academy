@@ -97,7 +97,7 @@
                 <div class="text-on-image-con">
                     <img src="{{asset('img/Group 4449.png')}}" style="" class="img-fluid" alt="" srcset="">
                     <div class="text-con">
-                        <h4>Introduction<span class="greentitle"> to Waste Management</span></h4>
+                        <h4>Introduction<span class="greentitle">to Waste Management</span></h4>
                         {{-- <p>At SafeEnviro academy we offer the highest quality of academic  and professional experience in the Waste</p>--}}
                     </div>
                 </div>

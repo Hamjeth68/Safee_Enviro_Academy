@@ -115,6 +115,8 @@
 </section>
 <!-- End About Section -->
 
+
+{{-- selectedCourses the com course  --}}
 <script>
     let currency = '£';
     let selectedCourses = [{
@@ -356,7 +358,7 @@
               </button>`;
         }
     }
-
+            
     function getProduct(course) {
         if (!course) return;
 
