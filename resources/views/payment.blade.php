@@ -10,12 +10,14 @@
 
     <section id="pageHead" class="about">
         <div class="col-md-1"></div>
-
-        <aside class="col-sm-4">
-            <p>Paymetn form2</p>
-            <article class="card">
-                <div class="card-body p-5">
-
+        @php
+            $stripe_key = 'pk_test_P12QLgq8kFlmguiOdbN0N7N700w6ctR8qR';
+        @endphp
+        {{-- <aside class="col-sm-4"> --}}
+        <p>Paymetn form2</p>
+        <article class="card">
+            <div class="card-body p-5">
+                <form action="{{ url('/payment-done') }}" method="post" id="payment-form">
                     <ul class="nav bg-light nav-pills rounded nav-fill mb-3" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="pill" href="#nav-tab-card">
@@ -72,43 +74,109 @@
                                         </div> <!-- form-group.// -->
                                     </div>
                                 </div> <!-- row.// -->
-                                <p class="lead">
-                                    <a class="btn btn-primary btn-sm" href="{{ url('thankyou') }}"
-                                        role="button">Confirm</a>
-                                </p>
-                        </div> <!-- tab-pane.// -->
-                        <div class="tab-pane fade" id="nav-tab-paypal">
-                            <p>Paypal is easiest way to pay online</p>
-                            <p>
-                                <button type="button" class="btn btn-primary"> <i class="fab fa-paypal"></i> Log in my
-                                    Paypal </button>
-                            </p>
-                            <p><strong>Note:</strong>Enable your paypal account</p>
-                        </div>
-                        <div class="tab-pane fade" id="nav-tab-bank">
-                            <p>Bank accaunt details</p>
-                            <dl class="param">
-                                <dt>BANK: </dt>
-                                <dd>World bank</dd>
-                            </dl>
-                            <dl class="param">
-                                <dt>Accaunt number: </dt>
-                                <dd>XXXXXXXXXXX</dd>
-                            </dl>
-                            <dl class="param">
-                                <dt>Code: </dt>
-                                <dd>XXXXXXXXXXX</dd>
-                            </dl>
-                            <p><strong>Note:</strong>anything related bank details...</p>
-                        </div> <!-- tab-pane.// -->
-                    </div> <!-- tab-content .// -->
-
-                </div> <!-- card-body.// -->
-            </article> <!-- card.// -->
-
-
-        </aside>
+                                <div class="card-footer">
+                                    <button id="card-button" class="btn btn-dark" type="submit"
+                                        data-secret="{{ $intent }}"> Pay </button>
+                                </div> <!-- tab-pane.// -->
+                                <div class="tab-pane fade" id="nav-tab-paypal">
+                                    <p>Paypal is easiest way to pay online</p>
+                                    <p>
+                                        <button type="button" class="btn btn-primary"> <i class="fab fa-paypal"></i> Log in
+                                            my
+                                            Paypal </button>
+                                    </p>
+                                    <p><strong>Note:</strong>Enable your paypal account</p>
+                                </div>
+                                <div class="tab-pane fade" id="nav-tab-bank">
+                                    <p>Bank accaunt details</p>
+                                    <dl class="param">
+                                        <dt>BANK: </dt>
+                                        <dd>World bank</dd>
+                                    </dl>
+                                    <dl class="param">
+                                        <dt>Accaunt number: </dt>
+                                        <dd>XXXXXXXXXXX</dd>
+                                    </dl>
+                                    <dl class="param">
+                                        <dt>Code: </dt>
+                                        <dd>XXXXXXXXXXX</dd>
+                                    </dl>
+                                    <p><strong>Note:</strong>anything related bank details...</p>
+                                </div> <!-- tab-pane.// -->
+                        </div> <!-- tab-content .// -->
+                </form>
+            </div> <!-- card-body.// -->
+        </article> <!-- card.// -->
+        {{-- </aside> --}}
     </section>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        // Custom styling can be passed to options when creating an Element.
+        // (Note that this demo uses a wider set of styles than the guide below.)
+
+        var style = {
+            base: {
+                color: '#32325d',
+                lineHeight: '18px',
+                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                    color: '#aab7c4'
+                }
+            },
+            invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
+            }
+        };
+
+        const stripe = Stripe('{{ $stripe_key }}', {
+            locale: 'en'
+        }); // Create a Stripe client.
+        const elements = stripe.elements(); // Create an instance of Elements.
+        const cardElement = elements.create('card', {
+            style: style
+        }); // Create an instance of the card Element.
+        const cardButton = document.getElementById('card-button');
+        const clientSecret = cardButton.dataset.secret;
+
+        cardElement.mount('#card-element'); // Add an instance of the card Element into the `card-element` <div>.
+
+        // Handle real-time validation errors from the card Element.
+        cardElement.addEventListener('change', function(event) {
+            var displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+
+        // Handle form submission.
+        var form = document.getElementById('payment-form');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            stripe.handleCardPayment(clientSecret, cardElement, {
+                    payment_method_data: {
+                        //billing_details: { name: cardHolderName.value }
+                    }
+                })
+                .then(function(result) {
+                    console.log(result);
+                    if (result.error) {
+                        // Inform the user if there was an error.
+                        var errorElement = document.getElementById('card-errors');
+                        errorElement.textContent = result.error.message;
+                    } else {
+                        console.log(result);
+                        form.submit();
+                    }
+                });
+        });
+    </script>
 
 
 

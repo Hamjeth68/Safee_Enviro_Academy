@@ -14,7 +14,7 @@
             <a href="{{url('/login')}}" class="text-black-50 font-weight-bold">Staff</a>
             <a href="https://moodle.org/login/index.php" class="text-black-50 font-weight-bold">Alumni</a>
             <a href="https://moodle.org/login/index.php" class="text-black-50 font-weight-bold">Student</a>
-            <a href="https://safeenviroacademy.co.uk/login/" class="text-black-50 font-weight-bold">Login</a>
+            <a href="{{url('/login/student')}}" class="text-black-50 font-weight-bold">Login</a>
             <a><input class="searchtype px-2" type="search" placeholder="Search" aria-label="Search"></a>
             <a href="" class="text-black-50 font-weight-bold px-2"><i class="icofont-ui-search"></i></a>
             {{--            <a href="#" class="twitter"><i class="icofont-twitter"></i></a>--}}
@@ -73,7 +73,8 @@
                 <li class="drop-down"><a href="{{url('/students')}}">Accounts</a>
                     <ul>
 {{--                        <li><a href="{{url('/business1')}}">Business Services</a></li>--}}
-                        <li><a href="{{url('/students')}}">Create Account</a></li>
+                        <li><a href="{{url('/register/student')}}">Create Student</a></li>
+                        <li><a href="{{url('/register')}}">Create Admin</a></li>
 {{--                        <li><a href="{{url('/Research1')}}">Research & Innovation</a></li>--}}
                         {{--                        <li><a href="#">About</a></li>--}}
                         {{--                        <li><a href="#">Continuing Professional</a></li>--}}

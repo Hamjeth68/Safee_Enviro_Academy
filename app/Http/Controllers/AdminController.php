@@ -1,18 +1,26 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 
 
 class AdminController extends Controller
 {
-    public function index(){
+    public function AdminList()
+    {
+        $users = User::all();
+        // return response()->json(['students' => $students], 200);
+        return view('admins', compact('users'));
+    }
+
+    public function index()
+    {
         return view('adminpanel');
     }
 
     public function UserManagment()
     {
-       return view('users');
+        return view('users');
     }
 
     public function CourseData()
@@ -20,11 +28,13 @@ class AdminController extends Controller
         return view('courses');
     }
 
-    public function GetReports(){
+    public function GetReports()
+    {
         return view('reports');
     }
 
-    public function logAdmin(){
+    public function logAdmin()
+    {
         return view('adminlogin');
     }
 }

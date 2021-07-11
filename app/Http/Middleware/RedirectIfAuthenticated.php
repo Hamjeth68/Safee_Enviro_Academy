@@ -27,6 +27,18 @@ class RedirectIfAuthenticated
             }
         }
 
+        // if ($guard == "users" && Auth::guard($guard)->check()) {
+        //     return redirect('/admin');
+        // }
+        // if ($guard == "students" && Auth::guard($guard)->check()) {
+        //     return redirect('/home');
+        // }
+        // if (Auth::guard($guard)->check()) {
+        //     return redirect('/home');
+        // }
+
         return $next($request);
+
+        // return $next($request);
     }
 }

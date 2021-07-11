@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisterController;
+
 
 
 
@@ -133,16 +136,17 @@ Route::post('/students/add',[App\Http\Controllers\CreateUserStController::class,
 
 
 
-Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'store']);
+Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'create']);
 
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('login');
-Route::post('/custom-login', [App\Http\Controllers\Auth\LoginController::class, 'customLogin'])->name('login.custom'); 
+Route::post('/custom-login', [App\Http\Controllers\Auth\LoginController::class, 'adminLogin'])->name('login.adminLogin'); 
 
 
 
 Route::get('/emailForm', [App\Http\Controllers\EmailController::class, 'create']);
 Route::post('/emailForm', [App\Http\Controllers\EmailController::class, 'sendEmail'])->name('send.email');
-Route::get('/payment', [App\Http\Controllers\EmailController::class, 'Pay']);
+Route::get('/payment', [App\Http\Controllers\StripeController::class, 'checkout']);
+Route::post('/payment-done', [App\Http\Controllers\StripeController::class, 'checkout']);
 
 Route::get('/thankyou', [App\Http\Controllers\EmailController::class, 'thank']);
 
@@ -150,10 +154,30 @@ Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index']);
 
 Route::get('/users', [App\Http\Controllers\AdminController::class, 'UserManagment']);
 Route::get('/courses', [App\Http\Controllers\AdminController::class, 'CourseData']);
-Route::get('/reports', [App\Http\Controllers\AdminController::class, 'GetReports']);
+Route::get('/reports', [App\Http\Controllers\AdminController::class, 'AdminList']);
 Route::get('/adminlog', [App\Http\Controllers\AdminController::class, 'logAdmin']);
 
 
+// Route::get('/login/admin', [App\Http\Controllers\LoginController::class, 'index']);
+Route::get('/login/student', [App\Http\Controllers\Auth\LoginController::class,'LoginForm']);
+// Route::get('/register/admin', [App\Http\Controllers\RegisterController::class,'showAdminRegisterForm']);
+ Route::get('/register/student', [App\Http\Controllers\Auth\RegisterController::class,'showtudentRegisterForm']);
+
+
+// Route::post('/login/admin', [App\Http\Controllers\LoginController::class,'adminLogin']);
+Route::post('/login/student', [App\Http\Controllers\Auth\LoginController::class,'StudentLogin']);
+// Route::post('/register/admin', [App\Http\Controllers\RegisterController::class,'createAdmin']);
+Route::post('/register/student', [App\Http\Controllers\Auth\RegisterController::class,'createStudent'])->name('register.createStudent');
+
+
+// Route::group(['middleware' => 'auth:students'], function () {
+//     Route::view('/student', 'students');
+// });
+
+// Route::group(['middleware' => 'auth:users'], function () {
+    
+//     Route::view('/user', 'users');
+// });
 
 
 
