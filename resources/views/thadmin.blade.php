@@ -46,11 +46,11 @@
             <div class="row mt-4">
                 <div class="col-md-1"></div>
                 <div class="col-md-8 jumbotron text-center">
-                    <h1 class="display-3">Welcome to Safeenviro Academy</h1>
-                    <p class="lead">Thank you for choosing Safeenviro Academy.</p>
+                    <h1 class="display-3">Welcome Admin!</h1>
+                    <p class="lead">Please login to your dashboard.</p>
                     <hr>
                     <p class="lead">
-                        <a class="btn btn-primary btn-sm" href="{{ url('/') }}" role="button">Continue to homepage</a>
+                        <a class="btn btn-primary btn-sm" href="{{ url('/login') }}" role="button">Continue to homepage</a>
                     </p>
                 </div>
                 <div class="col-md-2"></div>

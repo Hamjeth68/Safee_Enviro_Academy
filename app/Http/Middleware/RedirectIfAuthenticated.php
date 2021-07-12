@@ -37,7 +37,7 @@ class RedirectIfAuthenticated
         //     return redirect('/home');
         // }
 
-        return $next($request);
+        // return $next($request);
 
         // return $next($request);
     }

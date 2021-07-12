@@ -37,4 +37,9 @@ class AdminController extends Controller
     {
         return view('adminlogin');
     }
+
+
+    public function thAdmin(){
+        return view('thadmin');
+    }
 }

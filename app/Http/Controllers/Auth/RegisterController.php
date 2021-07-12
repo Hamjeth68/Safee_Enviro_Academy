@@ -32,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -42,16 +42,20 @@ class RegisterController extends Controller
     // public function __construct()
     // {
     //     $this->middleware('guest');
+    //     $this->middleware('guest:user');
+    //     $this->middleware('guest:student');
     // }
 
 
     public function showAdminRegisterForm()
     {
+        Redirect::setIntendedUrl(url()->previous());
         return view('auth.register');
     }
 
     public function showtudentRegisterForm()
     {
+        Redirect::setIntendedUrl(url()->previous());
         return view('auth.stdregister');
     }
 
@@ -83,7 +87,7 @@ class RegisterController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
-        return redirect()->intended('/home2');
+       
     }
 
 
@@ -109,7 +113,8 @@ class RegisterController extends Controller
             'date' => $request['date'],
             'state' => $request['state'],           
         ]);
-        return redirect()->intended('/home2');
-        
+        // if(Student::create($request)== true){
+        //     return redirect()->intended(RouteServiceProvider::HOME);
+        // }
     }
 }

@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
-
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 
@@ -103,6 +102,11 @@ Route::get('/guest-login', function () {
     return view('guestlogin');
 });
 
+
+Route::get('/t-hankAdmin', function () {
+    return view('thankAdmin');
+});
+
 // Route::get('/contact-us', function () {
 //     return view('enquiryForm');
 // });
@@ -135,9 +139,10 @@ Route::get('/students-list', [App\Http\Controllers\CreateUserStController::class
 Route::post('/students/add',[App\Http\Controllers\CreateUserStController::class, 'store'])->name('students.store');
 
 
-
+//admin
 Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, 'create']);
 
+//admin
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('login');
 Route::post('/custom-login', [App\Http\Controllers\Auth\LoginController::class, 'adminLogin'])->name('login.adminLogin'); 
 
@@ -157,13 +162,16 @@ Route::get('/courses', [App\Http\Controllers\AdminController::class, 'CourseData
 Route::get('/reports', [App\Http\Controllers\AdminController::class, 'AdminList']);
 Route::get('/adminlog', [App\Http\Controllers\AdminController::class, 'logAdmin']);
 
+Route::get('/thankAdmin', [App\Http\Controllers\AdminController::class, 'thAdmin']);
 
+
+//only for student 
 // Route::get('/login/admin', [App\Http\Controllers\LoginController::class, 'index']);
 Route::get('/login/student', [App\Http\Controllers\Auth\LoginController::class,'LoginForm']);
 // Route::get('/register/admin', [App\Http\Controllers\RegisterController::class,'showAdminRegisterForm']);
  Route::get('/register/student', [App\Http\Controllers\Auth\RegisterController::class,'showtudentRegisterForm']);
 
-
+//student 
 // Route::post('/login/admin', [App\Http\Controllers\LoginController::class,'adminLogin']);
 Route::post('/login/student', [App\Http\Controllers\Auth\LoginController::class,'StudentLogin']);
 // Route::post('/register/admin', [App\Http\Controllers\RegisterController::class,'createAdmin']);

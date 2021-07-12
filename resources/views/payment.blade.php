@@ -10,14 +10,12 @@
 
     <section id="pageHead" class="about">
         <div class="col-md-1"></div>
-        @php
-            $stripe_key = 'pk_test_P12QLgq8kFlmguiOdbN0N7N700w6ctR8qR';
-        @endphp
+
         {{-- <aside class="col-sm-4"> --}}
         <p>Paymetn form2</p>
         <article class="card">
             <div class="card-body p-5">
-                <form action="{{ url('/payment-done') }}" method="post" id="payment-form">
+                <form action="{{ url('/payment-done') }}" method="POST" id="payment-form">
                     <ul class="nav bg-light nav-pills rounded nav-fill mb-3" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="pill" href="#nav-tab-card">
@@ -111,6 +109,9 @@
     </section>
     <script src="https://js.stripe.com/v3/"></script>
     <script>
+        @php
+        $stripe_key = 'pk_test_P12QLgq8kFlmguiOdbN0N7N700w6ctR8qR';
+        @endphp
         // Custom styling can be passed to options when creating an Element.
         // (Note that this demo uses a wider set of styles than the guide below.)
 
@@ -161,7 +162,9 @@
 
             stripe.handleCardPayment(clientSecret, cardElement, {
                     payment_method_data: {
-                        //billing_details: { name: cardHolderName.value }
+                        billing_details: {
+                            name: cardHolderName.value
+                        }
                     }
                 })
                 .then(function(result) {

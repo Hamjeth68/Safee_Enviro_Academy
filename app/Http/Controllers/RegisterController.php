@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
 use Session;
@@ -38,7 +39,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    // public $redirectTo = RouteServiceProvider::HOME;
+    public $redirectTo = RouteServiceProvider::HOME;
 
 
     // protected $redirectTo = '/home';
@@ -58,11 +59,13 @@ class RegisterController extends Controller
 
     public function showAdminRegisterForm()
     {
+        // Redirect::setIntendedUrl(url()->previous());
         return view('auth.register');
     }
 
     public function showtudentRegisterForm()
     {
+        // Redirect::setIntendedUrl(url()->previous());
         return view('auth.stdregister');
     }
     /**
@@ -106,7 +109,7 @@ class RegisterController extends Controller
             // 'state' => $data['state']      
 
         ]);
-        return redirect()->intended('/home2');
+        // return redirect()->intended(RouteServiceProvider::HOME);
 
         // Mail::send('email-template', $data, function ($message) use ($data) {
         //     $message->to($data['email'])
@@ -141,7 +144,7 @@ class RegisterController extends Controller
             'date' => $request['date'],
             'state' => $request['state'],           
         ]);
-        // return redirect()->intended('');
+        // return redirect()->intended(RouteServiceProvider::HOME);
     }
 
 
