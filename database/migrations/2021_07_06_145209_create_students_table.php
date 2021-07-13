@@ -26,6 +26,7 @@ class CreateStudentsTable extends Migration
             $table->date('date');
             $table->string('state');            
             $table->timestamps();
+
         });
 
         

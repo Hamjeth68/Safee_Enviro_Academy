@@ -136,7 +136,7 @@ Route::get('/students', [App\Http\Controllers\CreateUserStController::class, 'cr
 
 Route::get('/students-list', [App\Http\Controllers\CreateUserStController::class, 'index']);
 
-Route::post('/students/add',[App\Http\Controllers\CreateUserStController::class, 'store'])->name('students.store');
+Route::post('/students/add', [App\Http\Controllers\CreateUserStController::class, 'store'])->name('students.store');
 
 
 //admin
@@ -144,7 +144,7 @@ Route::post('/register', [App\Http\Controllers\Auth\RegisterController::class, '
 
 //admin
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('login');
-Route::post('/custom-login', [App\Http\Controllers\Auth\LoginController::class, 'adminLogin'])->name('login.adminLogin'); 
+Route::post('/custom-login', [App\Http\Controllers\Auth\LoginController::class, 'adminLogin'])->name('login.adminLogin');
 
 
 
@@ -167,15 +167,22 @@ Route::get('/thankAdmin', [App\Http\Controllers\AdminController::class, 'thAdmin
 
 //only for student 
 // Route::get('/login/admin', [App\Http\Controllers\LoginController::class, 'index']);
-Route::get('/login/student', [App\Http\Controllers\Auth\LoginController::class,'LoginForm']);
+Route::get('/login/student', [App\Http\Controllers\Auth\LoginController::class, 'LoginForm']);
 // Route::get('/register/admin', [App\Http\Controllers\RegisterController::class,'showAdminRegisterForm']);
- Route::get('/register/student', [App\Http\Controllers\Auth\RegisterController::class,'showtudentRegisterForm']);
+Route::get('/register/student', [App\Http\Controllers\Auth\RegisterController::class, 'showtudentRegisterForm']);
 
 //student 
 // Route::post('/login/admin', [App\Http\Controllers\LoginController::class,'adminLogin']);
-Route::post('/login/student', [App\Http\Controllers\Auth\LoginController::class,'StudentLogin']);
+Route::post('/login/student', [App\Http\Controllers\Auth\LoginController::class, 'StudentLogin']);
 // Route::post('/register/admin', [App\Http\Controllers\RegisterController::class,'createAdmin']);
-Route::post('/register/student', [App\Http\Controllers\Auth\RegisterController::class,'createStudent'])->name('register.createStudent');
+Route::post('/register/student', [App\Http\Controllers\Auth\RegisterController::class, 'createStudent'])->name('register.createStudent');
+
+
+
+Route::get('cart', [ProductController::class, 'cart'])->name('cart');
+Route::get('add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
+Route::patch('update-cart', [ProductController::class, 'update'])->name('update.cart');
+Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
 
 
 // Route::group(['middleware' => 'auth:students'], function () {
@@ -183,7 +190,7 @@ Route::post('/register/student', [App\Http\Controllers\Auth\RegisterController::
 // });
 
 // Route::group(['middleware' => 'auth:users'], function () {
-    
+
 //     Route::view('/user', 'users');
 // });
 

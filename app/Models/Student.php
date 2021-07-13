@@ -12,6 +12,7 @@ class Student extends Authenticatable
     protected $guard = 'students';
     protected $fillable = [
         'name',
+        'p_id',
         'email',
         'phone',
         'password',
@@ -20,4 +21,9 @@ class Student extends Authenticatable
         'date',
         'state',
     ];
+
+    // public function products()
+    // {
+    //     return $this->belongsTo(Product::class);
+    // }
 }
