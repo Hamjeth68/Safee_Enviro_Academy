@@ -19,7 +19,7 @@ class ProductSeeder extends Seeder
                 'p_title' => 'Introduction Waste Management',
                 'p_name' => 'Waste Management',
                 'slug'  => '',
-                'p_description' => '',
+                'p_description' => 'Introduction to the Management of Waste and Resources, Practical Waste Management, Resource Management/Sustainable Approach',
                 'p_quantity' => 1,
                 'p_ammount' => 99,
 
@@ -28,7 +28,7 @@ class ProductSeeder extends Seeder
                 'p_title' => 'Hazardous Waste ',
                 'p_name' => 'Samsung Brand',
                 'slug'  => '',
-                'p_description' => '',
+                'p_description' => 'Hazardous Waste Classifications, Impact of Hazardous Waste on our environment, Management of Hazardous Waste',
                 'p_quantity' => 1,
                 'p_ammount' => 175,
          

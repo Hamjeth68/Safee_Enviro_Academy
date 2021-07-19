@@ -158,7 +158,7 @@ Route::get('/thankyou', [App\Http\Controllers\EmailController::class, 'thank']);
 Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index']);
 
 Route::get('/users', [App\Http\Controllers\AdminController::class, 'UserManagment']);
-Route::get('/courses', [App\Http\Controllers\AdminController::class, 'CourseData']);
+Route::get('/courses-list', [App\Http\Controllers\ProductController::class, 'index']);
 Route::get('/reports', [App\Http\Controllers\AdminController::class, 'AdminList']);
 Route::get('/adminlog', [App\Http\Controllers\AdminController::class, 'logAdmin']);
 
@@ -207,3 +207,7 @@ Route::get('/inspiring-student', function () {
 });
 
 //dd(\Illuminate\Support\Facades\Session::all());
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

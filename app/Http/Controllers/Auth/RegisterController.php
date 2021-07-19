@@ -5,11 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use App\Models\Student;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -39,24 +36,9 @@ class RegisterController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('guest');
-    //     $this->middleware('guest:user');
-    //     $this->middleware('guest:student');
-    // }
-
-
-    public function showAdminRegisterForm()
+    public function __construct()
     {
-        Redirect::setIntendedUrl(url()->previous());
-        return view('auth.register');
-    }
-
-    public function showtudentRegisterForm()
-    {
-        Redirect::setIntendedUrl(url()->previous());
-        return view('auth.stdregister');
+        $this->middleware('guest');
     }
 
     /**
@@ -65,9 +47,9 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    public function validator(Request $request)
+    protected function validator(array $data)
     {
-        return Validator::make($request, [
+        return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -80,41 +62,12 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    public function create(Request $request)
+    protected function create(array $data)
     {
         return User::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
         ]);
-       
-    }
-
-
-    public function createStudent(Request $request){
-        // $request->validate([
-        //     'name' => 'required|max:191',
-        //     'email' => 'required|max:191',
-        //     'phone' => 'required|max:191',
-        //     'password' => 'required|max:191',
-        //     'address' => 'required|max:191',
-        //     'profession_occupation' => 'required|max:191',
-        //     'date' => 'required',
-        //     'state' => 'required|max:191',
-        // ]);
-
-        return Student::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'phone' => $request['phone'],
-            'password' => Hash::make($request['password']),
-            'address' => $request['address'],
-            'profession_occupation' => $request['profession_occupation'],
-            'date' => $request['date'],
-            'state' => $request['state'],           
-        ]);
-        // if(Student::create($request)== true){
-        //     return redirect()->intended(RouteServiceProvider::HOME);
-        // }
     }
 }

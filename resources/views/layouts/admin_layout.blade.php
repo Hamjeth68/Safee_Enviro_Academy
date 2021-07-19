@@ -47,7 +47,7 @@
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link" href="{{ url('/courses') }}">
+                        <a class="nav-link" href="{{ url('/courses-list') }}">
                             <i class="material-icons">content_paste</i>
                             <p>courses</p>
                         </a>
@@ -116,15 +116,15 @@
                             </div>
                         </form>
                         <ul class="navbar-nav">
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a class="nav-link" href="javascript:;">
                                     <i class="material-icons">dashboard</i>
                                     <p class="d-lg-none d-md-block">
                                         Stats
                                     </p>
                                 </a>
-                            </li>
-                            <li class="nav-item dropdown">
+                            </li> --}}
+                            {{-- <li class="nav-item dropdown">
                                 <a class="nav-link" href="http://example.com" id="navbarDropdownMenuLink"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="material-icons">notifications</i>
@@ -140,7 +140,7 @@
                                     <a class="dropdown-item" href="#">Another Notification</a>
                                     <a class="dropdown-item" href="#">Another One</a>
                                 </div>
-                            </li>
+                            </li> --}}
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="javascript:;" id="navbarDropdownProfile"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
